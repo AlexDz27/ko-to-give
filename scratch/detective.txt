@@ -1,0 +1,6 @@
+Tick - does screen refresh
+
+30 fps
+
+Waiting eats frames
+
