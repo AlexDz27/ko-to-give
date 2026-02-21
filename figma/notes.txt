@@ -1,0 +1,6 @@
+// рошма https://www.figma.com/design/tGBabqcSBdXqR3HGGKGStj/%D0%A0%D0%9E%D0%A8%D0%9C%D0%90?node-id=18-170&p=f&t=K7CN0BXCpJAtOI4q-0
+// метида https://www.figma.com/design/tGBabqcSBdXqR3HGGKGStj/%D0%A0%D0%9E%D0%A8%D0%9C%D0%90?node-id=18-170&p=f&t=K7CN0BXCpJAtOI4q-0
+
+Чёрные полки:
+  фон, на котором заголовок и снизу текст + аватар слева
+    crop
