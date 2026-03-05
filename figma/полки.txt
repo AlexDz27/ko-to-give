@@ -14,3 +14,6 @@ Auto layout -> flow free form -> Alignment посередине; Выбрать 
 
 Ага. У меня получилось сделать второй абзац подальше. Фигма просто убрала spacing 60 из интерфейса.
 Я так понял, таким образом она меня не загоняет в рамки Auto Layout, а даёт такой escape hatch.
+
+
+Preview: Prototype -> Custom size - 1440 x 1024; Fit width
