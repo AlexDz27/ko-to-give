@@ -1,0 +1,25 @@
+открыть проекты за 8 марта
+
+разница между растром и вектором (svg)
+  svg есть всякие разные: https://www.svgrepo.com/svg/501495/check-mark
+  приближать сам холст
+
+  🎯 "повторяйте за мной"; дать им ссылку на ornament.svg из tasks
+
+проблема - надо равные отступы
+  https://roshma.by/catalog/kisti-malyarnye/kist-ploskaya-standapt-natupalnyj-vops-5-125mm - .product
+
+
+Кнопка:
+  записать размеры кнопки: 159х38
+  ctrl зажимаем либо слева на слоях
+  auto width не забыть
+  Toggle auto layout
+
+  Кручу-верчу - и у меня текст всё так же по центру находится
+
+  🎯 Доделать в принципе: самостойка для кнопок (указать, что fill убираем и добавляем Stroke) + с цветами подсказать
+
+  🎯 и потом че-то придумать, чё дать под конец из барбершопа:
+  https://zloydedd.github.io/Barbershop/shop.html
+  https://sedona.vercel.app/
