@@ -1,0 +1,5 @@
+- noto sans?)
+
+- remove .gitkeep from css/components, т.к. уже есть black-section)
+
+- БЛЯ, сделать что-то с тем, как с стили добавляются (надо 3 действия щас - это пиздец)
