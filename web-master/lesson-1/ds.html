@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Мои увлечения | Мир хобби и вдохновения</title>
+  <!-- Простой и чистый шрифт из семейства sans-serif для отличной читаемости -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      background: linear-gradient(145deg, #f9f7f3 0%, #ece6df 100%);
+      font-family: system-ui, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+      color: #2c2b28;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+      padding: 2rem 1.5rem;
+    }
+    
+    /* главный контейнер с ограничением ширины для комфортного чтения */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      background: rgba(255, 255, 245, 0.7);
+      backdrop-filter: blur(1px);
+      border-radius: 3rem;
+      padding: 2rem 2rem 3rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
+      transition: all 0.2s ease;
+    }
+    
+    /* шапка с приветствием и вдохновляющим акцентом */
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
+      border-bottom: 2px dashed #dbcbb8;
+      padding-bottom: 1.8rem;
+    }
+    
+    .hero h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #5f4c3b, #a77b55);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.02);
+    }
+    
+    .hero p {
+      font-size: 1.25rem;
+      color: #5f5549;
+      max-width: 620px;
+      margin: 0.75rem auto 0;
+      font-style: italic;
+    }
+    
+    /* сетка карточек увлечений — адаптивная, красивая */
+    .hobbies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2.5rem 0 2rem;
+    }
+    
+    /* карточка отдельного хобби */
+    .hobby-card {
+      background: #ffffffdd;
+      backdrop-filter: blur(2px);
+      background: #fffef7;
+      border-radius: 2rem;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.08);
+      border: 1px solid #f0e4d4;
+    }
+    
+    .hobby-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 32px -12px rgba(0, 0, 0, 0.15);
+      border-color: #e2cfbc;
+    }
+    
+    /* цветная полоска-акцент сверху */
+    .card-accent {
+      height: 8px;
+      background: linear-gradient(90deg, #b87c4f, #e2b48c);
+    }
+    
+    .card-content {
+      padding: 1.6rem 1.6rem 2rem;
+    }
+    
+    .card-content h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    
+    .card-content h2 span {
+      font-size: 1.9rem;
+    }
+    
+    .card-content p {
+      color: #3e3a35;
+      margin-bottom: 1.4rem;
+      font-size: 1rem;
+    }
+    
+    /* мини-список деталей или особенностей */
+    .hobby-details {
+      list-style: none;
+      margin: 1rem 0 1.2rem;
+      background: #faf6ef;
+      padding: 0.8rem 1rem;
+      border-radius: 1.2rem;
+    }
+    
+    .hobby-details li {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: #5b4e40;
+    }
+    
+    .hobby-details li:last-child {
+      margin-bottom: 0;
+    }
+    
+    .emoji-bullet {
+      font-size: 1.1rem;
+      min-width: 1.6rem;
+    }
+    
+    .tag {
+      display: inline-block;
+      background: #e9dfd3;
+      padding: 0.2rem 1rem;
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #6b4e33;
+      letter-spacing: 0.3px;
+      margin-top: 0.6rem;
+    }
+    
+    /* секция вдохновения / цитата */
+    .inspire-section {
+      background: #e7dfd4c9;
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      margin: 2.8rem 0 1.5rem;
+      text-align: center;
+      border-left: 8px solid #b87c4f;
+      border-right: 1px solid #e2cfbc;
+    }
+    
+    .inspire-section blockquote {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #3c2e22;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    .inspire-section .author {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      color: #7a6856;
+      letter-spacing: 0.5px;
+    }
+    
+    /* таблица с расписанием / временем для увлечений — просто, но наглядно */
+    .schedule-wrapper {
+      margin: 2.5rem 0 1rem;
+      background: #fffef7;
+      border-radius: 1.8rem;
+      padding: 1.5rem;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.03);
+      border: 1px solid #ede3d7;
+    }
+    
+    .schedule-wrapper h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #4f3f30;
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      border-radius: 1.2rem;
+      overflow: hidden;
+    }
+    
+    th, td {
+      padding: 0.9rem 0.8rem;
+      text-align: left;
+      border-bottom: 1px solid #eedfcb;
+    }
+    
+    th {
+      background-color: #f4ede4;
+      font-weight: 600;
+      color: #634d38;
+    }
+    
+    tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .weekday {
+      font-weight: 500;
+      color: #a26e45;
+    }
+    
+    /* футер */
+    .footer-note {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #8b7b6a;
+      border-top: 1px solid #e0d3c4;
+      padding-top: 2rem;
+    }
+    
+    /* кнопка "наверх" для удобства */
+    .go-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #b87c4fcc;
+      backdrop-filter: blur(5px);
+      width: 44px;
+      height: 44px;
+      border-radius: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      color: white;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.1s;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .go-top:hover {
+      background: #9b623f;
+      transform: scale(1.02);
+    }
+    
+    @media (max-width: 680px) {
+      body {
+        padding: 1rem;
+      }
+      .container {
+        padding: 1.2rem;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .card-content h2 {
+        font-size: 1.5rem;
+      }
+      .inspire-section blockquote {
+        font-size: 1.1rem;
+      }
+      th, td {
+        padding: 0.6rem 0.4rem;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <div class="hero">
+      <h1>✨ Мои увлечения ✨</h1>
+      <p>Место, где оживают краски, ритмы, идеи и вдохновение. Каждое хобби — это маленькая дверь в новый мир.</p>
+    </div>
+    
+    <!-- Сетка с карточками увлечений: 4 разнообразных направления -->
+    <div class="hobbies-grid">
+      <!-- КАРТОЧКА 1: Фотография -->
+      <div class="hobby-card">
+        <div class="card-accent"></div>
+        <div class="card-content">
+          <h2><span>📸</span> Уличная фотография</h2>
+          <p>Ловить искренние моменты, свет и тени в городских пейзажах. Каждый кадр — история без слов.</p>
+          <ul class="hobby-details">
+            <li><span class="emoji-bullet">🔭</span> Люблю экспериментировать с ракурсами</li>
+            <li><span class="emoji-bullet">🌆</span> Золотой час — лучшее время для съёмки</li>
+            <li><span class="emoji-bullet">🖼️</span> Ч/б обработка для атмосферы</li>
+          </ul>
+          <div class="tag">#визуальное_искусство</div>
+        </div>
+      </div>
+      
+      <!-- КАРТОЧКА 2: Музыка (игра на гитаре + пение) -->
+      <div class="hobby-card">
+        <div class="card-accent"></div>
+        <div class="card-content">
+          <h2><span>🎸</span> Музыка & гитара</h2>
+          <p>Аккорды под вечерний дождь, импровизация и сочинение мелодий. Музыка лечит и объединяет.</p>
+          <ul class="hobby-details">
+            <li><span class="emoji-bullet">🎶</span> Играю акустику и электрогитару</li>
+            <li><span class="emoji-bullet">📝</span> Пишу авторские песни и инструменталы</li>
+            <li><span class="emoji-bullet">🎧</span> Обожаю джаз, инди-рок и lo-fi</li>
+          </ul>
+          <div class="tag">#мелодия_души</div>
+        </div>
+      </div>
+      
+      <!-- КАРТОЧКА 3: Путешествия и трекинг -->
+      <div class="hobby-card">
+        <div class="card-accent"></div>
+        <div class="card-content">
+          <h2><span>⛰️</span> Трекинг & путешествия</h2>
+          <p>Исследовать новые тропы, горные маршруты и уединённые уголки природы. Вдохновение приходит в движении.</p>
+          <ul class="hobby-details">
+            <li><span class="emoji-bullet">🥾</span> Пешие походы в Карпатах и Альпах</li>
+            <li><span class="emoji-bullet">🗺️</span> Составляю авторские маршруты</li>
+            <li><span class="emoji-bullet">🏕️</span> Кемпинг и костровые вечера</li>
+          </ul>
+          <div class="tag">#открытия_ждут</div>
+        </div>
+      </div>
+      
+      <!-- КАРТОЧКА 4: Книги и литературные вечера -->
+      <div class="hobby-card">
+        <div class="card-accent"></div>
+        <div class="card-content">
+          <h2><span>📚</span> Чтение & литература</h2>
+          <p>Погружение в миры фантастики, философские романы и современную поэзию. Книги расширяют горизонты.</p>
+          <ul class="hobby-details">
+            <li><span class="emoji-bullet">📖</span> Любимый жанр — магический реализм</li>
+            <li><span class="emoji-bullet">✍️</span> Веду читательский дневник</li>
+            <li><span class="emoji-bullet">☕</span> Уютный клуб по средам</li>
+          </ul>
+          <div class="tag">#книжный_червь</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Дополнительный блок с цитатой о хобби -->
+    <div class="inspire-section">
+      <blockquote>
+        «Увлечение — это не просто способ занять время, это способ наполнить жизнь смыслом, красками и радостью.»
+      </blockquote>
+      <div class="author">— из личного дневника вдохновения</div>
+    </div>
+    
+    <!-- Простая табличка: пример расписания / рутины по увлечениям (демонстрирует организованность) -->
+    <div class="schedule-wrapper">
+      <h3>📅 Ритм увлечений: пример недельного расписания</h3>
+      <table>
+        <thead>
+          <tr><th>День</th><th>Активность</th><th>Детали / место</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="weekday">Понедельник</td><td>🎸 Музыкальная практика</td><td>Разбор новых аккордов, запись идей<br>что-то ещё</td></tr>
+          <tr><td class="weekday">Среда</td><td>📚 Книжный вечер</td><td>Обсуждение прочитанного, чай с корицей</td></tr>
+          <tr><td class="weekday">Пятница</td><td>📸 Фотопрогулка</td><td>Уличная съёмка в центре города</td></tr>
+          <tr><td class="weekday">Суббота</td><td>⛰️ Активный отдых</td><td>Трекинг, исследование новых троп</td></tr>
+          <tr><td class="weekday">Воскресенье</td><td>🎨 Свободное творчество</td><td>Микс: музыка, обработка фото, планирование путешествий</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size: 0.8rem; margin-top: 1rem; color: #8f7b66;">* график гибкий, вдохновение всегда диктует свои правила</p>
+    </div>
+    
+    <!-- Небольшой блок с галереей-ссылкой на будущее, просто декоративный раздел "любимые моменты" -->
+    <div style="margin: 2rem 0 0.5rem;">
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center;">
+        <div style="display: flex; gap: 0.4rem; align-items: baseline;">
+          <span style="font-size: 1.4rem;">🌟</span>
+          <h3 style="font-weight: 500; font-size: 1.25rem; color:#5d4a35;">Вдохновляющие моменты</h3>
+        </div>
+        <div style="font-size: 0.85rem; background: #e7dbcfa0; border-radius: 40px; padding: 0.2rem 1rem;">
+          #живи_творчески
+        </div>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1rem;">
+        <div style="background: #efeadf; border-radius: 1.5rem; padding: 0.8rem 1.2rem; flex: 1 1 180px;">
+          🎶 "Вечерние аккорды под луной"
+        </div>
+        <div style="background: #efeadf; border-radius: 1.5rem; padding: 0.8rem 1.2rem; flex: 1 1 180px;">
+          📸 "Лучший кадр этой недели — закат у реки"
+        </div>
+        <div style="background: #efeadf; border-radius: 1.5rem; padding: 0.8rem 1.2rem; flex: 1 1 180px;">
+          ⛰️ "Новая тропа открыта, дышится легко"
+        </div>
+        <div style="background: #efeadf; border-radius: 1.5rem; padding: 0.8rem 1.2rem; flex: 1 1 180px;">
+          ⛰️ "Что-то новое"
+        </div>
+        <div style="background: #efeadf; border-radius: 1.5rem; padding: 0.8rem 1.2rem; flex: 1 1 180px;">
+          ⛰️ "Новая тропа открыта, дышится легко"
+        </div>
+        <div style="background: #efeadf; border-radius: 1.5rem; padding: 0.8rem 1.2rem; flex: 1 1 180px;">
+          ⛰️ "Новая тропа открыта, дышится легко"
+        </div>
+        <div style="background: #efeadf; border-radius: 1.5rem; padding: 0.8rem 1.2rem; flex: 1 1 180px;">
+          ⛰️ "Новая тропа открыта, дышится легко"
+        </div>
+        <div style="background: #efeadf; border-radius: 1.5rem; padding: 0.8rem 1.2rem; flex: 1 1 180px;">
+          ⛰️ "Новая тропа открыта, дышится легко"
+        </div>
+        <div style="background: #efeadf; border-radius: 1.5rem; padding: 0.8rem 1.2rem; flex: 1 1 180px;">
+          ⛰️ "Новая тропа открыта, дышится легко"
+        </div>
+        <div style="background: #efeadf; border-radius: 1.5rem; padding: 0.8rem 1.2rem; flex: 1 1 180px;">
+          ⛰️ "Новая тропа открыта, дышится легко"
+        </div>
+        <div style="background: #efeadf; border-radius: 1.5rem; padding: 0.8rem 1.2rem; flex: 1 1 180px;">
+          ⛰️ "Новая тропа открыта, дышится легко"
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-note">
+      🌻 Каждый день — возможность погрузиться в любимое дело. Создано с теплом к моим увлечениям 🌻
+    </div>
+  </div>
+  
+  <!-- кнопка "наверх" для удобной навигации по странице -->
+  <button class="go-top" aria-label="Наверх" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">↑</button>
+  
+  <!-- простой интерактив: добавим небольшую анимацию приветствия в консоль (чисто для души) -->
+  <script>
+    (function() {
+      console.log("🌸 Мои увлечения — мир, который я создаю каждый день. Спасибо, что заглянули! 🌸");
+      // легкий эффект для карточек: дополнительная адаптивность hover уже в css, 
+      // но добавим простую смену акцента при клике на таблицу? необязательно, но маленькая радость.
+      const cards = document.querySelectorAll('.hobby-card');
+      cards.forEach(card => {
+        card.addEventListener('click', (e) => {
+          // Небольшой фидбек, чтобы не мешал, просто приятный лог
+          const title = card.querySelector('h2')?.innerText || 'увлечение';
+          console.log(`✨ Открываю детали: ${title}`);
+        });
+      });
+      // уведомление о готовности
+      console.log("📷🎸⛰️📚 страница увлечений загружена, пусть вдохновение всегда рядом!");
+    })();
+  </script>
+</body>
+</html>
