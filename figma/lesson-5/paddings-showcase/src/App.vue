@@ -16,7 +16,7 @@
   .anek {
     display: flex;
     flex-direction: column;
-    /* row-gap: 8px; */
+    /* row-gap: 10px; */
 
     /* padding: 30px 15px; */
 
@@ -32,6 +32,9 @@
   .anek__title {
     text-align: center;
     margin: 0;
+
+    /* margin-bottom: 13px; */
+
     font-weight: 500;
   }
 </style>
